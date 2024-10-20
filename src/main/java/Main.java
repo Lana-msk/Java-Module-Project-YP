@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Добро пожаловать в самую реалистичную гоночную игру!");
         Scanner scanner = new Scanner(System.in);
         Car carOne = getCarFromUser(scanner, 1);
         Car carTwo = getCarFromUser(scanner, 2);
