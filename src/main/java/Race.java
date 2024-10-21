@@ -1,23 +1,21 @@
 public class Race {
-    private static Car leader;
+    private static Car currentLeader;
 
-    Race() {
-    }
-
-    public static void defineLeaderFromParticipants(Car carOne, Car carTwo, Car carThree) {
-        if (carOne.getSpeed() * 24 > carTwo.getSpeed() * 24) {
-            if (carOne.getSpeed() * 24 > carThree.getSpeed() * 24) leader = carOne;
-            else {
-                leader = carThree;
-            }
-        } else if (carTwo.getSpeed() * 24 > carThree.getSpeed() * 24) {
-            leader = carTwo;
+    public static void defineLeaderFromParticipants(Car one, Car two, Car three) {
+        if (one.getSpeed() >= two.getSpeed() && one.getSpeed() >= three.getSpeed()) {
+            setLeader(one);
+        } else if (two.getSpeed() >= one.getSpeed() && two.getSpeed() >= three.getSpeed()) {
+            setLeader(two);
         } else {
-            leader = carThree;
+            setLeader(three);
         }
     }
 
-    public Car getLeader() {
-        return this.leader;
+    private static void setLeader(Car leader) {
+        currentLeader = leader;
+    }
+
+    public static Car getLeader() {
+        return currentLeader;
     }
 }
